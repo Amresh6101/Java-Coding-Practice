@@ -102,3 +102,19 @@ findFirst(), findAny()
   for (int num : numbers) {
       result = result * num;
   }
+
+// sorting map-> Map.Entry.ComparingByKey()
+// sorting map-> Map.Entry.ComparingByValue()
+
+// function.identity()
+
+List<String> fruits = List.of("apple", "banana", "cherry");
+
+Map<String, String> fruitMap = fruits.stream()
+        .collect(Collectors.toMap(
+            Function.identity(),    // key is the string itself
+            fruit -> fruit.toUpperCase() // value is the uppercase version
+        ));
+
+System.out.println(fruitMap);
+// Output: {apple=APPLE, banana=BANANA, cherry=CHERRY}
