@@ -1,0 +1,104 @@
+If we want to represent a group of objects as a single entity then we should go for collection.
+But if we want to process objects from the collection then we should go for streams.
+
+====
+There are broadly 3 types of operations that are carried over streams namely as follows as depicted from the image shown above:
+
+Intermediate operations
+Terminal operations
+Short-circuit operations
+Short circuiting operations are the operations which don’t need the whole stream to be processed to produce a result. For example – findFirst(), findAny(), limit() etc.
+==
+1) The main difference between intermediate and terminal operations is that intermediate operations return a stream as a result and terminal operations return non-stream values like primitive or object or collection or may not return anything.
+2) Intermediate operations are lazily loaded. When you call intermediate operations, they are actually not executed. They are just stored in the memory and executed when the terminal operation is called on the stream.
+
+3) As the names suggest, intermediate operations doesn’t give end result. They just transform one stream to another stream. On the other hand, terminal operations give end result.
+
+Intermediate Operations :
+
+map(), filter(), distinct(), sorted(), limit(), skip()
+
+Terminal Operations :
+
+forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()
+
+🔁 Intermediate Operations
+
+===========================
+They return Stream.
+
+Can be chained together to form a pipeline of operations.
+
+A pipeline can contain any number of intermediate operations.
+
+They are lazily loaded — nothing happens until a terminal operation is invoked.
+
+They don’t produce a final result on their own.
+
+Examples:
+
+filter()
+
+map()
+
+distinct()
+
+sorted()
+
+limit()
+
+skip()
+
+✅ Terminal Operations
+They return non-Stream values.
+
+Cannot be chained — they are the end of the pipeline.
+
+A pipeline can have only one terminal operation, and it must be at the end.
+
+They are eagerly loaded — they trigger the execution of the whole pipeline.
+
+They produce the final result.
+
+Examples:
+
+forEach()
+
+toArray()
+
+reduce()
+
+collect()
+
+min(), max()
+
+count()
+
+anyMatch(), allMatch(), noneMatch()
+
+findFirst(), findAny()
+
+==========================
+ ✅ reduce() with identity:
+ int product = list.stream().reduce(1, (a, b) -> a * b);
+
+         Always returns a non-null value (even if the stream is empty).
+
+         Identity acts as the starting point.
+         Returns: T (the same type as the elements in the stream).
+
+  ❓ reduce() without identity:
+
+  Optional<Integer> product = list.stream().reduce((a, b) -> a * b);
+
+  Returns an Optional<T> because there might be no result (if the stream is empty).
+
+  No identity value to fall back on.
+
+  If the stream is empty, you’ll get Optional.empty().
+
+  Think identity  like it.
+  int result = 1;  // identity
+  for (int num : numbers) {
+      result = result * num;
+  }

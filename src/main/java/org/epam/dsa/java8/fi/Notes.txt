@@ -1,0 +1,10 @@
+-functional interface is an interface which contains only one abstract method but multiple default and static method
+-multiple default fi
+  - predicate
+  - supplier
+  - consumer
+  - Function
+  - Bipredicate
+  - Biconsumer
+  - Bifunction
+
