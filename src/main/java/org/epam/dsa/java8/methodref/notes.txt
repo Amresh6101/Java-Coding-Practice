@@ -1,0 +1,25 @@
+Java 8 method references are the shortened versions of lambda expressions calling a specific method. For example, lambda expression (Student s) -> s.getName() which is calling a method getName() of Student class can be shortened as Student::getName using Java 8 method references.
+
+===
+it is being used as a short hand form of lambda
+====
+a) Method reference to static method :
+   ClassName::MethodName
+   Integer::parseInt, Math::max
+
+b) Method reference to instance method of an existing object :
+
+   ReferenceVariable::MethodName
+   s::getName
+
+c) Constructor References:
+   ClassName::new
+
+   Student::new
+   // lambda and method reference
+   ()-> new LinkedHashSet<>() // lambda
+   LinkedHashSet::new // method reference
+
+
+
+

@@ -1,0 +1,28 @@
+
+// optional is used to handle null pointer exception (npe);
+// it is very hard to avoid it without using too many null checks.
+// So, to overcome this, Java 8 has introduced a new class Optional in java.util package.
+// It can help in writing a neat code without using too many null checks.
+// helps in avoiding NullPointerException and writing more expressive and safe code.
+✅ Optional.of(T value)
+------------------------
+Requires a non-null value.
+
+Throws NullPointerException if you pass null.
+
+Optional<String> opt = Optional.of("John"); // ✅ OK
+Optional<String> optNull = Optional.of(null); // ❌ Throws NullPointerException
+✅ Use this when you're sure the value is never null.
+
+✅ Optional.ofNullable(T value)
+--------------------------------
+Allows null values.
+
+If the value is null, it returns an empty Optional.
+
+If the value is not null, it wraps it in an Optional.
+
+Optional<String> opt1 = Optional.ofNullable("John"); // ✅ Optional[John]
+Optional<String> opt2 = Optional.ofNullable(null);   // ✅ Optional.empty
+
+✅ Use this when the value might be null.
